@@ -131,6 +131,31 @@ li a:hover {
 
 
 /*********************
+    about styling
+*********************/
+.about {
+	background-color: #fff;
+	height: 40vh;
+	color: black;
+}
+
+.container {
+	float: center;
+	width: 80%;
+	text-align: center;
+	padding-top:20px;
+}
+
+.title {
+	font-size: 45px;
+}
+
+#col {
+	padding: 20px;
+}
+
+
+/*********************
 	footer styling
 *********************/
 
