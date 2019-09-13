@@ -144,12 +144,12 @@ li a:hover {
 	padding: 3% 0;
 }
 
-.title {
+.aboutTitle {
 	font-size: 40px;
 	color: white;
 }
 
-.description {
+.aboutDescription {
 	font-size: 20px;
 	color: rgba(255, 255, 2555, 0.7);
 }
