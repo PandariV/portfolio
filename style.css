@@ -134,24 +134,24 @@ li a:hover {
     about styling
 *********************/
 .about {
-	background-color: #fff;
-	height: 40vh;
-	color: black;
+	background-color: #212529;
+	text-align: center;
+	padding: 3% 0;
 }
 
 .container {
-	float: center;
-	width: 80%;
-	text-align: center;
-	padding-top:20px;
+	width: 60vw;
+	padding: 3% 0;
 }
 
 .title {
-	font-size: 45px;
+	font-size: 40px;
+	color: white;
 }
 
-#col {
-	padding: 20px;
+.description {
+	font-size: 20px;
+	color: rgba(255, 255, 2555, 0.7);
 }
 
 
@@ -189,5 +189,9 @@ footer {
 
 	.sub-text {
 		font-size: 16px;
+	}
+	
+	.description {
+		font-size: 15px;
 	}
 }
