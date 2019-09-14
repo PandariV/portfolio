@@ -154,6 +154,27 @@ li a:hover {
 	color: rgba(255, 255, 2555, 0.7);
 }
 
+.call2action2 {
+	margin: 35px auto;
+	display: block;
+	width: 200px;
+	height: 50px;
+	border: 3px solid white;
+	background-color: white;
+	color: #212529;
+	font-family: 'Raleway', sans-serif;
+	font-weight: bold;
+	font-size: 15px;
+	transition: all 0.5s;
+}
+
+.call2action2:hover {
+	background-color: rgb(192, 192, 192);
+	border: 3px solid rgb(192, 192, 192);
+	cursor: pointer;
+	transition: all 0.5s;
+}
+
 
 /*********************
 	footer styling
