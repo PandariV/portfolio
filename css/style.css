@@ -86,7 +86,7 @@ li a:hover {
 .landing {
 	background: rgba(64, 64, 64, 1);
 	background-blend-mode: soft-light;
-	background-image: url(background.png);
+	background-image: url(../images/background.png);
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -173,6 +173,21 @@ li a:hover {
 	border: 3px solid rgb(192, 192, 192);
 	cursor: pointer;
 	transition: all 0.5s;
+}
+
+
+/*********************
+   projects styling
+*********************/
+.projects {
+	background-color: white;
+	text-align: center;
+	padding: 3% 0;
+}
+
+.projectsTitle {
+	font-size: 40px;
+	color: black;
 }
 
 
