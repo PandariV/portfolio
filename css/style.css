@@ -40,11 +40,6 @@ header {
 	z-index: 1;
 }
 
-.navbar-fixed-top.scrolled {
-	background-color: #fff;
-	transition: background-color 200ms linear;
-}
-
 .logo {
 	float: left;
 	font-size: 35px;
