@@ -227,7 +227,7 @@ footer {
 	responsivness
 *********************/
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 769px) {
 	.navbar-collapse {
 		background: black;
 	}
