@@ -75,6 +75,10 @@ nav {
 	text-decoration: underline;
 }
 
+.navbar-inverse .navbar-header button:hover {
+	background-color: rgba(0, 0, 0, 0);
+}
+
 
 /*********************
 	 home styling
