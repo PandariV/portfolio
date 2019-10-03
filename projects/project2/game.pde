@@ -14,7 +14,7 @@ void setup() {
 }
 
 void draw() { 
-  background(255);
+  background(0);
   
   for (int i = 0; i < boxes.size(); i++) {
     boxes.get(i).show();
@@ -54,12 +54,11 @@ class Box {
   }
   
   void show() {
-    stroke(255);
     
     if (alive)
-      fill(0);
-    else
       fill(255);
+    else
+      fill(0);
    
     rect(x, y, scale, scale);
   }
