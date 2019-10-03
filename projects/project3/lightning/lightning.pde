@@ -1,64 +1,91 @@
-int sx, sy, ex, ey;
-int sec = 0, totalTime = 1000, wait = 5, savedTime;
-Bolt[] bolts = new Bolt[4];
+Bolt[] bolts;
+Person bernardNjanga;
 
-
-void setup() {
-  sx = (int)random(width);
-  ex = sx;
-  sy = 0;
-  ey = 0;
-  
-  for(int i = 0; i < 4; i++) {
+void setup() {  
+  bolts = new Bolt[4];
+  for(int i = 0; i < bolts.length; i++) {
     bolts[i] = new Bolt();
   }
+  
+  bernardNjanga = new Person();
+  
   size(800, 600);
-  background(0);
   strokeWeight(5);
 }
 
 void draw() {
+  background(0);
   stroke(52, 232, 235);
-  
-  m += millis();
   
   for(Bolt b : bolts) {
     b.show();
     b.update();
   }
   
-  if(m >= 200) {
-    clear();
-    m = 0;
-  }
+  noStroke();
+  fill(0, 100, 0);
+  rect(0, height - 50, width, 50);
+  
+  bernardNjanga.show();
+  bernardNjanga.update();
 }
 
-void checkTime() {
-  int passedTime = millis() - savedTime;
-  if (passedTime > totalTime) {
-    sec++;
-    if (sec > snowWait) {
-      grow -= 1;
-    }
-    savedTime = millis();
-  }
+void mousePressed() {
+  setup();
 }
 
 class Bolt {
+  int sx, sy, ex, ey;
+  
+  Bolt() {
+    update();
+  }
+  
   void update() {
-    sx = mouseX;
-    ex = (int)random(width);
-    sy = mouseY;
-    ey = sy;
+    sx = (int)random(width);
+    ex = sx;
+    sy = 0;
+    ey = 0;
   }
   
   void show() {
-    while(ey > 0) {
-      ey = sy - (int)random(9);
-      ex = sx - (int)random(-9, 9);
+    while(ey < height) {
+      ey = sy + (int)random(9);
+      ex = sx + (int)random(-9, 9);
       line(sx, sy, ex, ey);
       sx = ex;
       sy = ey;
     }
+  }
+}
+
+class Person {
+  int x, y, speeed;
+  
+  Person() {
+    x = width/2;
+    y = 600 - 50;
+    speeed = 5;
+  }
+  
+  void update() {
+    if(mouseX > x) {
+      x += speeed;
+    }
+    else {
+      x -= speeed;
+    }
+  }
+  
+  void show() {
+    fill(255);
+    ellipse(x, y-70, 40, 40);
+    fill(255, 0, 0);
+    rect(x-20, y-50, 40, 40);
+    fill(255);
+    rect(x-40, y-35, 20, 7);
+    rect(x+20, y-35, 20, 7);
+    rect(x+5, y-10, 7, 25);
+    rect(x-12, y-10, 7, 25);
   }
 }
