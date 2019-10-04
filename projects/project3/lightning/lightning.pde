@@ -1,22 +1,34 @@
+PImage tseries;
+PImage pewds;
 Bolt[] bolts;
 Person bernardNjanga;
+int time, wait, totalTime;
+boolean clapped;
 
-void setup() {  
+void setup() {
   bolts = new Bolt[4];
   for(int i = 0; i < bolts.length; i++) {
     bolts[i] = new Bolt();
   }
   
+  tseries = loadImage("tseries.png");
+  pewds = loadImage("pewds.png");
   bernardNjanga = new Person();
   
   size(800, 600);
   strokeWeight(5);
+  
+  clapped = false;
+  time = 0;
+  wait = 200;
+  totalTime = 0;
 }
 
 void draw() {
   background(0);
   stroke(52, 232, 235);
   
+  time = millis();
   for(Bolt b : bolts) {
     b.show();
     b.update();
@@ -30,7 +42,7 @@ void draw() {
   bernardNjanga.update();
 }
 
-void mousePressed() {
+void keyPressed() {
   setup();
 }
 
@@ -69,23 +81,18 @@ class Person {
   }
   
   void update() {
-    if(mouseX > x) {
+    if(mouseX > x + 2) {
       x += speeed;
     }
-    else {
+    else if (mouseX < x - 2) {
       x -= speeed;
     }
   }
   
   void show() {
-    fill(255);
-    ellipse(x, y-70, 40, 40);
-    fill(255, 0, 0);
-    rect(x-20, y-50, 40, 40);
-    fill(255);
-    rect(x-40, y-35, 20, 7);
-    rect(x+20, y-35, 20, 7);
-    rect(x+5, y-10, 7, 25);
-    rect(x-12, y-10, 7, 25);
+    if(clapped) {
+    }
+    image(pewds, width-300, 10, 300, 350);
+    image(tseries, x-20, y-50, 40, 60);
   }
 }
