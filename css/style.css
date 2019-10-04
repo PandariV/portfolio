@@ -43,7 +43,7 @@ header {
 .logo {
 	float: left;
 	font-size: 35px;
-	color: white;
+	color: #E5E5E5;
     padding: 10px 30px;
 	position: fixed;
 }
@@ -68,7 +68,7 @@ nav {
 }
 
 .navbar-inverse .navbar-nav li a {
-	color: white;
+	color: #E5E5E5;
 }
 
 .navbar-inverse .navbar-nav li a:hover {
@@ -100,7 +100,7 @@ nav {
 
 .hero {
 	font-size: 65px;
-	color: white;
+	color: #E5E5E5;
 	text-align: center;
 	position: absolute;
 	top: 30%;
@@ -117,9 +117,9 @@ nav {
 	display: block;
 	width: 200px;
 	height: 50px;
-	border: 3px solid white;
+	border: 3px solid #E5E5E5;
 	background-color: rgba(255, 255, 255, 0);
-	color: white;
+	color: #E5E5E5;
 	font-family: 'Raleway', sans-serif;
 	font-weight: bold;
 	font-size: 15px;
@@ -127,7 +127,7 @@ nav {
 }
 
 .call2action:hover {
-	background-color: white;
+	background-color: #E5E5E5;
 	color: black;
 	cursor: pointer;
 	transition: all 0.5s;
@@ -151,7 +151,7 @@ nav {
 
 .aboutTitle {
 	font-size: 40px;
-	color: white;
+	color: #E5E5E5;
 }
 
 .aboutDescription {
@@ -164,8 +164,8 @@ nav {
 	display: block;
 	width: 200px;
 	height: 50px;
-	border: 3px solid white;
-	background-color: white;
+	border: 3px solid #E5E5E5;
+	background-color: #E5E5E5;
 	color: #212529;
 	font-family: 'Raleway', sans-serif;
 	font-weight: bold;
@@ -175,7 +175,7 @@ nav {
 
 .call2action2:hover {
 	background-color: rgba(0, 0, 0, 0);
-	color: white;
+	color: #E5E5E5;
 	cursor: pointer;
 	transition: all 0.5s;
 }
@@ -224,7 +224,7 @@ nav {
 
 footer {
 	background-color: black;
-	color: white;
+	color: #E5E5E5;
 	font-size: 14px;
 	text-align: center;
 	padding: 60px;
