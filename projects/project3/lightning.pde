@@ -28,7 +28,11 @@ void setup() {
 
 void draw() {
   if (clapped) {
-    background(255, 0, 0);
+    fill(255, 255, 0);
+    textSize(25);
+    text("SUB 2 PEWDIEPIE", width/2 - 100, height/2 - 5);
+    textSize(20);
+    text("press any key to restart", width/2 - 95, height/2 + 25);
   }
   else {
     background(0);
@@ -50,7 +54,7 @@ void draw() {
       p.show();
       p.update();
       
-      if ((bernardNjanga.x + 20 >= p.x || bernardNjanga.x - 20 <= p.x) && (bernardNjanga.y == p.y - 10)) {
+      if ((((bernardNjanga.x - 20) - (p.x + 50) <= 0) && ((bernardNjanga.x + 20) - p.x >= 0)) && ((bernardNjanga.y - 50) - p.y <= 50) && ((bernardNjanga.y +10) - p.y >= 0)) {
         clapped = true;
       }
     }
