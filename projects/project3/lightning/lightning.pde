@@ -2,10 +2,12 @@ PImage tseries;
 PImage pewds;
 Bolt[] bolts;
 Person bernardNjanga;
-int time, wait, totalTime;
+Pewds [] pies;
 boolean clapped;
 
 void setup() {
+  clapped = false;
+  
   bolts = new Bolt[4];
   for(int i = 0; i < bolts.length; i++) {
     bolts[i] = new Bolt();
@@ -15,31 +17,44 @@ void setup() {
   pewds = loadImage("pewds.png");
   bernardNjanga = new Person();
   
+  pies = new Pewds[5];
+  for(int i = 0; i < pies.length; i++) {
+    pies[i] = new Pewds();
+  }
+  
   size(800, 600);
   strokeWeight(5);
-  
-  clapped = false;
-  time = 0;
-  wait = 200;
-  totalTime = 0;
 }
 
 void draw() {
-  background(0);
-  stroke(52, 232, 235);
-  
-  time = millis();
-  for(Bolt b : bolts) {
-    b.show();
-    b.update();
+  if (clapped) {
+    background(255, 0, 0);
   }
+  else {
+    background(0);
+    stroke(52, 232, 235);
   
-  noStroke();
-  fill(0, 100, 0);
-  rect(0, height - 50, width, 50);
-  
-  bernardNjanga.show();
-  bernardNjanga.update();
+    for(Bolt b : bolts) {
+      b.show();
+      b.update();
+    }
+    
+    noStroke();
+    fill(0, 100, 0);
+    rect(0, height - 50, width, 50);
+    
+    bernardNjanga.show();
+    bernardNjanga.update();
+    
+    for (Pewds p : pies) {
+      p.show();
+      p.update();
+      
+      if ((bernardNjanga.x + 20 >= p.x || bernardNjanga.x - 20 <= p.x) && (bernardNjanga.y == p.y - 10)) {
+        clapped = true;
+      }
+    }
+  }
 }
 
 void keyPressed() {
@@ -90,9 +105,37 @@ class Person {
   }
   
   void show() {
-    if(clapped) {
-    }
-    image(pewds, width-300, 10, 300, 350);
     image(tseries, x-20, y-50, 40, 60);
+  }
+}
+
+class Pewds {
+  int x = 0, y = 0, size = 0;
+  double xSpeed = 0, ySpeed = 0;
+  
+  Pewds() {
+    x = (int) random(0, width);
+    y = (int) random(-1000, -10);
+    xSpeed = random(-1, 1);
+    ySpeed = random(2, 6);
+    size = (int) random(1, 10);
+  }
+  
+  void show() {
+    image(pewds, x, y, 50, 50);
+  }
+  
+  void update() {
+    x += xSpeed;
+    y += ySpeed;
+    
+    if (y > height) {
+      y = (int) random(-300, -10);
+      x = (int) random(0, width);
+    }
+    if (x == 0) {
+      y = (int) random(-300, -10);
+      x = (int) random(0, width);
+    }
   }
 }
