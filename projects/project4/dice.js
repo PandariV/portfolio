@@ -18,15 +18,14 @@ function draw(){
   rotateY(rotY);
   fill(255);
   box(wd);
-  fill(255, 0, 0);
+  fill(200, 0, 0);
   textSize(32);
   textFont(font);
   text("Roll: " + value, -50, -200);
-  stroke(255, 0, 0);
+  stroke(200, 0, 0);
   strokeWeight(2);
   line(0, -190, 0, 0);
   
-  stroke(0);
   if(value == 1) {
     //top (1)
     translate(0, -wd/2);
