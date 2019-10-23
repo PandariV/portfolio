@@ -33,15 +33,41 @@ function draw(){
     translate(0, wd/2);
     
     //bottom (6)
+    translate(wd/2 - pd, wd/2);
+    sphere(20);
+    translate(2* (-wd/2 + pd), 0);
+    sphere(20);
+    translate(2 * (wd/2 - pd), 0, -wd/2 + pd);
+    sphere(20);
+    translate(2 * (-wd/2 + pd), 0, 2 * (wd/2 - pd));
+    sphere(20);
+    translate(wd/2 - pd, -wd/2, -wd/2 + pd);
+    translate(wd/2 - pd, wd/2, wd/2 - pd);
+    sphere(20);
+    translate(2 * (-wd/2 + pd), 0, -2 * (wd/2 - pd));
+    sphere(20);
+    translate(wd/2 - pd, -wd/2, wd/2 - pd);
   } else if(value == 2) {
     //top (2)
     translate(wd/2 - pd, -wd/2, -wd/2 + pd);
     sphere(20);
     translate(2 * (-wd/2 + pd), 0, 2 * (wd/2 - pd));
     sphere(20);
-    translate(wd/2 - pd, +wd/2, -wd/2 + pd);
+    translate(wd/2 - pd, wd/2, -wd/2 + pd);
     
     //bottom (5)
+    translate(0, wd/2);
+    sphere(20);
+    translate(wd/2 - pd, 0, -wd/2 + pd);
+    sphere(20);
+    translate(2 * (-wd/2 + pd), 0, 2 * (wd/2 - pd));
+    sphere(20);
+    translate(wd/2 - pd, -wd/2, -wd/2 + pd);
+    translate(wd/2 - pd, wd/2, wd/2 - pd);
+    sphere(20);
+    translate(2 * (-wd/2 + pd), 0, -2 * (wd/2 - pd));
+    sphere(20);
+    translate(wd/2 - pd, -wd/2, wd/2 - pd);
   } else if(value == 3) {
     //top (3)
     translate(0, -wd/2);
@@ -50,10 +76,82 @@ function draw(){
     sphere(20);
     translate(2 * (-wd/2 + pd), 0, 2 * (wd/2 - pd));
     sphere(20);
-    translate(wd/2 - pd, +wd/2, -wd/2 + pd);
+    translate(wd/2 - pd, wd/2, -wd/2 + pd);
+    
+    //bottom (4)
+    translate(wd/2 - pd, wd/2, -wd/2 + pd);
+    sphere(20);
+    translate(2 * (-wd/2 + pd), 0, 2 * (wd/2 - pd));
+    sphere(20);
+    translate(wd/2 - pd, -wd/2, -wd/2 + pd);
+    translate(wd/2 - pd, wd/2, wd/2 - pd);
+    sphere(20);
+    translate(2 * (-wd/2 + pd), 0, -2 * (wd/2 - pd));
+    sphere(20);
+    translate(wd/2 - pd, -wd/2, wd/2 - pd);
   } else if(value == 4) {
+    //top (4)
+    translate(wd/2 - pd, -wd/2, -wd/2 + pd);
+    sphere(20);
+    translate(2 * (-wd/2 + pd), 0, 2 * (wd/2 - pd));
+    sphere(20);
+    translate(wd/2 - pd, +wd/2, -wd/2 + pd);
+    translate(wd/2 - pd, -wd/2, wd/2 - pd);
+    sphere(20);
+    translate(2 * (-wd/2 + pd), 0, -2 * (wd/2 - pd));
+    sphere(20);
+    translate(wd/2 - pd, wd/2, wd/2 - pd);
+    
+    //bottom (3)
+    translate(0, wd/2);
+    sphere(20);
+    translate(wd/2 - pd, 0, -wd/2 + pd);
+    sphere(20);
+    translate(2 * (-wd/2 + pd), 0, 2 * (wd/2 - pd));
+    sphere(20);
+    translate(wd/2 - pd, -wd/2, -wd/2 + pd);
   } else if(value == 5) {
+    //top (5)
+    translate(0, -wd/2);
+    sphere(20);
+    translate(wd/2 - pd, 0, -wd/2 + pd);
+    sphere(20);
+    translate(2 * (-wd/2 + pd), 0, 2 * (wd/2 - pd));
+    sphere(20);
+    translate(wd/2 - pd, wd/2, -wd/2 + pd);
+    translate(wd/2 - pd, -wd/2, wd/2 - pd);
+    sphere(20);
+    translate(2 * (-wd/2 + pd), 0, -2 * (wd/2 - pd));
+    sphere(20);
+    translate(wd/2 - pd, wd/2, wd/2 - pd);
+    
+    //bottom (2)
+    translate(wd/2 - pd, wd/2, -wd/2 + pd);
+    sphere(20);
+    translate(2 * (-wd/2 + pd), 0, 2 * (wd/2 - pd));
+    sphere(20);
+    translate(wd/2 - pd, -wd/2, -wd/2 + pd);
   } else {
+    //top (6)
+    translate(wd/2 - pd, -wd/2);
+    sphere(20);
+    translate(2* (-wd/2 + pd), 0);
+    sphere(20);
+    translate(2 * (wd/2 - pd), 0, -wd/2 + pd);
+    sphere(20);
+    translate(2 * (-wd/2 + pd), 0, 2 * (wd/2 - pd));
+    sphere(20);
+    translate(wd/2 - pd, +wd/2, -wd/2 + pd);
+    translate(wd/2 - pd, -wd/2, wd/2 - pd);
+    sphere(20);
+    translate(2 * (-wd/2 + pd), 0, -2 * (wd/2 - pd));
+    sphere(20);
+    translate(wd/2 - pd, wd/2, wd/2 - pd);
+    
+    //bottom (1)
+    translate(0, wd/2);
+    sphere(20);
+    translate(0, -wd/2);
   }
 }
 
