@@ -1,5 +1,5 @@
 float rotX = 0, rotY = 0;
-int value = 6;
+int value = 1;
 int wd = 250, pd = 60;
 
 void setup(){
@@ -47,6 +47,20 @@ void draw(){
     translate(2 * (-wd/2 + pd), 0, -2 * (wd/2 - pd));
     sphere(20);
     translate(wd/2 - pd, -wd/2, wd/2 - pd);
+    
+    //front (4)
+    translate(wd/2 - pd, -wd/2 + pd, wd/2);
+    sphere(20);
+    translate(-wd/2, 0, 0);
+    sphere(20);
+    translate(pd, wd/2 - pd, -wd/2);
+    translate(wd/2 - pd, wd/2 - pd, wd/2);
+    sphere(20);
+    translate(-wd/2, 0, 0);
+    sphere(20);
+    translate(pd, -wd/2 + pd, -wd/2);
+    
+    //back (3)//
   } else if(value == 2) {
     //top (2)
     translate(wd/2 - pd, -wd/2, -wd/2 + pd);
