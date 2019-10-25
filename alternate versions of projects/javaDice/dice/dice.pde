@@ -1,5 +1,5 @@
 float rotX = 0, rotY = 0;
-int value = 1;
+int value = 2;
 int wd = 250, pd = 60;
 
 void setup(){
@@ -82,6 +82,23 @@ void draw(){
     translate(2 * (-wd/2 + pd), 0, -2 * (wd/2 - pd));
     sphere(20);
     translate(wd/2 - pd, -wd/2, wd/2 - pd);
+    
+    //front (6)//
+    translate(wd/2 - pd, 0, wd/2);
+    sphere(20);
+    translate(-wd/2, 0);
+    sphere(20);
+    translate(pd, 0, -wd/2);
+    translate(wd/2 - pd, -wd/2 + pd, wd/2);
+    sphere(20);
+    translate(-wd/2, 0, 0);
+    sphere(20);
+    translate(pd, wd/2 - pd, -wd/2);
+    translate(wd/2 - pd, wd/2 - pd, wd/2);
+    sphere(20);
+    translate(-wd/2, 0, 0);
+    sphere(20);
+    translate(pd, -wd/2 + pd, -wd/2);
   } else if(value == 3) {
     //top (3)
     translate(0, -wd/2);
@@ -103,6 +120,10 @@ void draw(){
     translate(2 * (-wd/2 + pd), 0, -2 * (wd/2 - pd));
     sphere(20);
     translate(wd/2 - pd, -wd/2, wd/2 - pd);
+    
+    //front (1)//
+    translate(0, 0, wd/2);
+    sphere(20);
   } else if(value == 4) {
     //top (4)
     translate(wd/2 - pd, -wd/2, -wd/2 + pd);
@@ -166,6 +187,8 @@ void draw(){
     translate(0, wd/2);
     sphere(20);
     translate(0, -wd/2);
+    
+    //front (4)
   }
 }
 
