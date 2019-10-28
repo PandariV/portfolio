@@ -1,5 +1,5 @@
 var rotX = 0, rotY = 0;
-var value = 2;
+var value = 1;
 var wd = 250, pd = 60;
 
 function setup(){
@@ -47,7 +47,7 @@ function draw(){
     translate(2 * (-wd/2 + pd), 0, -2 * (wd/2 - pd));
     sphere(20);
     translate(wd/2 - pd, -wd/2, wd/2 - pd);
-
+    
     //front (4)
     translate(wd/2 - pd, -wd/2 + pd, wd/2);
     sphere(20);
@@ -59,6 +59,36 @@ function draw(){
     translate(-wd/2, 0, 0);
     sphere(20);
     translate(pd, -wd/2 + pd, -wd/2);
+    
+    //back (3)
+    translate(0, 0, -wd/2);
+    sphere(20);
+    translate(wd/2 - pd, -wd/2 + pd, 0);
+    sphere(20);
+    translate(2 * (-wd/2 + pd), 2 * (wd/2 - pd), 0);
+    sphere(20);
+    translate(wd/2 - pd, -wd/2 + pd, wd/2);
+    
+    //left (5)
+    translate(-wd/2, 0, 0);
+    sphere(20);
+    translate(0, wd/2 - pd, -wd/2 + pd);
+    sphere(20);
+    translate(0, 2 * (-wd/2 + pd), 2 * (wd/2 - pd));
+    sphere(20);
+    translate(wd/2, wd/2 - pd, -wd/2 + pd);
+    translate(-wd/2, wd/2 - pd, wd/2 - pd);
+    sphere(20);
+    translate(0, 2 * (-wd/2 + pd), -2 * (wd/2 - pd));
+    sphere(20);
+    translate(wd/2, wd/2 - pd, wd/2 - pd);
+    
+    //right (2)
+    translate(wd/2, wd/2 - pd, -wd/2 + pd);
+    sphere(20);
+    translate(0, 2 * (-wd/2 + pd), 2 * (wd/2 - pd));
+    sphere(20);
+    translate(-wd/2, wd/2 - pd, -wd/2 + pd);
   } else if(value == 2) {
     //top (2)
     translate(wd/2 - pd, -wd/2, -wd/2 + pd);
@@ -80,6 +110,49 @@ function draw(){
     translate(2 * (-wd/2 + pd), 0, -2 * (wd/2 - pd));
     sphere(20);
     translate(wd/2 - pd, -wd/2, wd/2 - pd);
+    
+    //front (6)
+    translate(wd/2 - pd, 0, wd/2);
+    sphere(20);
+    translate(-wd/2, 0);
+    sphere(20);
+    translate(pd, 0, -wd/2);
+    translate(wd/2 - pd, -wd/2 + pd, wd/2);
+    sphere(20);
+    translate(-wd/2, 0, 0);
+    sphere(20);
+    translate(pd, wd/2 - pd, -wd/2);
+    translate(wd/2 - pd, wd/2 - pd, wd/2);
+    sphere(20);
+    translate(-wd/2, 0, 0);
+    sphere(20);
+    translate(pd, -wd/2 + pd, -wd/2);
+    
+    //back (1)
+    translate(0, 0, -wd/2);
+    sphere(20);
+    translate(0, 0, wd/2);
+    
+    //left (3)
+    translate(wd/2, 0, 0);
+    sphere(20);
+    translate(0, -wd/2 + pd, wd/2 - pd);
+    sphere(20);
+    translate(0, 2 * (wd/2 - pd), 2 * (-wd/2 + pd));
+    sphere(20);
+    translate(-wd/2, -wd/2 + pd, wd/2 - pd);
+    
+    //right (4)
+    translate(-wd/2, -wd/2 + pd, wd/2 - pd);
+    sphere(20);
+    translate(0, 0, -wd/2);
+    sphere(20);
+    translate(wd/2, wd/2 - pd, pd);
+    translate(-wd/2, wd/2 - pd, wd/2 - pd);
+    sphere(20);
+    translate(0, 0, -wd/2);
+    sphere(20);
+    translate(wd/2, -wd/2 + pd, pd);
   } else if(value == 3) {
     //top (3)
     translate(0, -wd/2);
@@ -101,6 +174,49 @@ function draw(){
     translate(2 * (-wd/2 + pd), 0, -2 * (wd/2 - pd));
     sphere(20);
     translate(wd/2 - pd, -wd/2, wd/2 - pd);
+    
+    //front (1)
+    translate(0, 0, wd/2);
+    sphere(20);
+    translate(0, 0, -wd/2);
+    
+    //back (6)
+    translate(wd/2 - pd, 0, -wd/2);
+    sphere(20);
+    translate(-wd/2, 0);
+    sphere(20);
+    translate(pd, 0, wd/2);
+    translate(wd/2 - pd, -wd/2 + pd, -wd/2);
+    sphere(20);
+    translate(-wd/2, 0, 0);
+    sphere(20);
+    translate(pd, wd/2 - pd, wd/2);
+    translate(wd/2 - pd, wd/2 - pd, -wd/2);
+    sphere(20);
+    translate(-wd/2, 0, 0);
+    sphere(20);
+    translate(pd, -wd/2 + pd, wd/2);
+    
+    //left (5)
+    translate(-wd/2, 0, 0);
+    sphere(20);
+    translate(0, wd/2 - pd, -wd/2 + pd);
+    sphere(20);
+    translate(0, 2 * (-wd/2 + pd), 2 * (wd/2 - pd));
+    sphere(20);
+    translate(wd/2, wd/2 - pd, -wd/2 + pd);
+    translate(-wd/2, wd/2 - pd, wd/2 - pd);
+    sphere(20);
+    translate(0, 2 * (-wd/2 + pd), -2 * (wd/2 - pd));
+    sphere(20);
+    translate(wd/2, wd/2 - pd, wd/2 - pd);
+    
+    //right (2)
+    translate(wd/2, wd/2 - pd, -wd/2 + pd);
+    sphere(20);
+    translate(0, 2 * (-wd/2 + pd), 2 * (wd/2 - pd));
+    sphere(20);
+    translate(-wd/2, wd/2 - pd, -wd/2 + pd);
   } else if(value == 4) {
     //top (4)
     translate(wd/2 - pd, -wd/2, -wd/2 + pd);
@@ -122,6 +238,49 @@ function draw(){
     translate(2 * (-wd/2 + pd), 0, 2 * (wd/2 - pd));
     sphere(20);
     translate(wd/2 - pd, -wd/2, -wd/2 + pd);
+    
+    //front (6)
+    translate(wd/2 - pd, 0, wd/2);
+    sphere(20);
+    translate(-wd/2, 0);
+    sphere(20);
+    translate(pd, 0, -wd/2);
+    translate(wd/2 - pd, -wd/2 + pd, wd/2);
+    sphere(20);
+    translate(-wd/2, 0, 0);
+    sphere(20);
+    translate(pd, wd/2 - pd, -wd/2);
+    translate(wd/2 - pd, wd/2 - pd, wd/2);
+    sphere(20);
+    translate(-wd/2, 0, 0);
+    sphere(20);
+    translate(pd, -wd/2 + pd, -wd/2);
+    
+    //back (1)
+    translate(0, 0, -wd/2);
+    sphere(20);
+    translate(0, 0, wd/2);
+    
+    //left (5)
+    translate(-wd/2, 0, 0);
+    sphere(20);
+    translate(0, wd/2 - pd, -wd/2 + pd);
+    sphere(20);
+    translate(0, 2 * (-wd/2 + pd), 2 * (wd/2 - pd));
+    sphere(20);
+    translate(wd/2, wd/2 - pd, -wd/2 + pd);
+    translate(-wd/2, wd/2 - pd, wd/2 - pd);
+    sphere(20);
+    translate(0, 2 * (-wd/2 + pd), -2 * (wd/2 - pd));
+    sphere(20);
+    translate(wd/2, wd/2 - pd, wd/2 - pd);
+    
+    //right (2)
+    translate(wd/2, wd/2 - pd, -wd/2 + pd);
+    sphere(20);
+    translate(0, 2 * (-wd/2 + pd), 2 * (wd/2 - pd));
+    sphere(20);
+    translate(-wd/2, wd/2 - pd, -wd/2 + pd);
   } else if(value == 5) {
     //top (5)
     translate(0, -wd/2);
@@ -143,6 +302,48 @@ function draw(){
     translate(2 * (-wd/2 + pd), 0, 2 * (wd/2 - pd));
     sphere(20);
     translate(wd/2 - pd, -wd/2, -wd/2 + pd);
+    
+    //front (3)
+    translate(0, 0, wd/2);
+    sphere(20);
+    translate(wd/2 - pd, -wd/2 + pd, 0);
+    sphere(20);
+    translate(2 * (-wd/2 + pd), 2 * (wd/2 - pd), 0);
+    sphere(20);
+    translate(wd/2 - pd, -wd/2 + pd, -wd/2);
+    
+    //back (4)
+    translate(wd/2 - pd, -wd/2 + pd, -wd/2);
+    sphere(20);
+    translate(-wd/2, 0, 0);
+    sphere(20);
+    translate(pd, wd/2 - pd, wd/2);
+    translate(wd/2 - pd, wd/2 - pd, -wd/2);
+    sphere(20);
+    translate(-wd/2, 0, 0);
+    sphere(20);
+    translate(pd, -wd/2 + pd, wd/2);
+    
+    //left (1)
+    translate(-wd/2, 0);
+    sphere(20);
+    translate(wd/2, 0);
+    
+    //right (6)
+    translate(wd/2, wd/2 - pd);
+    sphere(20);
+    translate(0, 2* (-wd/2 + pd));
+    sphere(20);
+    translate(0, 2 * (wd/2 - pd), -wd/2 + pd);
+    sphere(20);
+    translate(0, 2 * (-wd/2 + pd), 2 * (wd/2 - pd));
+    sphere(20);
+    translate(-wd/2, wd/2 - pd, -wd/2 + pd);
+    translate(wd/2, wd/2 - pd, wd/2 - pd);
+    sphere(20);
+    translate(0, 2 * (-wd/2 + pd), -2 * (wd/2 - pd));
+    sphere(20);
+    translate(-wd/2, wd/2 - pd, wd/2 - pd);
   } else {
     //top (6)
     translate(wd/2 - pd, -wd/2);
@@ -164,6 +365,48 @@ function draw(){
     translate(0, wd/2);
     sphere(20);
     translate(0, -wd/2);
+    
+    //front (4)
+    translate(wd/2 - pd, -wd/2 + pd, wd/2);
+    sphere(20);
+    translate(-wd/2, 0, 0);
+    sphere(20);
+    translate(pd, wd/2 - pd, -wd/2);
+    translate(wd/2 - pd, wd/2 - pd, wd/2);
+    sphere(20);
+    translate(-wd/2, 0, 0);
+    sphere(20);
+    translate(pd, -wd/2 + pd, -wd/2);
+    
+    //back (3)
+    translate(0, 0, -wd/2);
+    sphere(20);
+    translate(wd/2 - pd, -wd/2 + pd, 0);
+    sphere(20);
+    translate(2 * (-wd/2 + pd), 2 * (wd/2 - pd), 0);
+    sphere(20);
+    translate(wd/2 - pd, -wd/2 + pd, wd/2);
+    
+    //left (2)
+    translate(-wd/2, wd/2 - pd, -wd/2 + pd);
+    sphere(20);
+    translate(0, 2 * (-wd/2 + pd), 2 * (wd/2 - pd));
+    sphere(20);
+    translate(wd/2, wd/2 - pd, -wd/2 + pd);
+    
+    //right (5)
+    translate(wd/2, 0, 0);
+    sphere(20);
+    translate(0, wd/2 - pd, -wd/2 + pd);
+    sphere(20);
+    translate(0, 2 * (-wd/2 + pd), 2 * (wd/2 - pd));
+    sphere(20);
+    translate(-wd/2, wd/2 - pd, -wd/2 + pd);
+    translate(wd/2, wd/2 - pd, wd/2 - pd);
+    sphere(20);
+    translate(0, 2 * (-wd/2 + pd), -2 * (wd/2 - pd));
+    sphere(20);
+    translate(-wd/2, wd/2 - pd, wd/2 - pd);
   }
 }
 
