@@ -1,22 +1,35 @@
-PImage player;
+PImage player, background, bully;
 Player bob;
+Bar progress;
+Bully dave;
+ArrayList<Bully> bullies = new ArrayList<Bully>();
 
 void setup() {
   size(800, 600);
+  cursor(CROSS);
+  
+  background = loadImage("background.jpg");
   
   player = loadImage("player.png");
   bob = new Player(width/2, height/2);
+  
+  bully = loadImage("enemy.png");
+  dave = new Bully(random(width), random(height));
+  
+  progress = new Bar();
 }
 
 void draw() {
-  background(0);
+  background(background);
   bob.show();
   bob.update();
+  
+  dave.show();
+  dave.update();
 }
 
 class Player {
-  float x, y;
-  float ease = 1.001;
+  float x, y, ease = .02;
   
   Player(float x, float y) {
     this.x = x;
@@ -24,19 +37,45 @@ class Player {
   }
   
   void update() {
-    x *= ease;
-    y *= ease;
+    if(mouseX > 6 && mouseX < width - 7) {
+      float dx = mouseX - x;
+      x += dx * ease;
+    }
+    
+    if (mouseY > 3 && mouseY < height - 15) {
+      float dy = mouseY - y;
+      y += dy * ease;
+    }
   }
   
   void show() {
-    translate(x, y);
-    rotate(HALF_PI);
-    image(player, 0, 0, 70, 70);
+    image(player, x-35, y-35, 70, 70);
   }
 }
 
-class Friends {
-  Friends() {
+class Bully {
+  float x, y, ease = .008;;
+  
+  Bully(float x, float y) {
+    this.x = x;
+    this.y = y;
+  }
+  
+  void update() {
+    float dx = bob.x-35 - x;
+    x += dx * ease;
+    
+    float dy = bob.y-35 - y;
+    y += dy * ease;
+  }
+  
+  void show() {
+    image(bully, x, y, 70, 70);
+  }
+}
+
+class Bar {
+  Bar() {
   }
   
   void update() {
