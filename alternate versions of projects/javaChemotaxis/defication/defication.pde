@@ -5,12 +5,14 @@ ArrayList<Bully> bullies = new ArrayList<Bully>();
 ArrayList<Feces> poopy = new ArrayList<Feces>();
 int mass;
 int stage;
-int index;
+int indexP;
+boolean alive;
 
 void setup() {
   size(800, 600);
   background(139, 69, 19);
   cursor(CROSS);
+  alive = true;
   mass = 10;
   stage = 1;
   
@@ -28,12 +30,14 @@ void setup() {
 void draw() {
   background(background);
   
+  alive = mass > 0 ? true : false;
+  
   for(Feces turd : poopy) {
     turd.show();
   }
   
-  for(index = 0; index < poopy.size(); index++) {
-    poopy.get(index).update();
+  for(indexP = 0; indexP < poopy.size(); indexP++) {
+    poopy.get(indexP).update();
   }
   
   bob.show();
@@ -126,7 +130,7 @@ class Feces {
       saved += total;
       total = 0;
       poopy.remove(0);
-      index--;
+      indexP--;
     }
   }
 }
