@@ -7,7 +7,7 @@ int mass;
 int gTotal, gSaved;
 int bTotal, bSaved;
 int sped;
-boolean alive, playing = false;
+boolean alive, playing = false, credits = false, rules = false;
 
 void setup() {
   size(1000, 600);
@@ -164,21 +164,40 @@ void draw() {
     fill(255);
     text("Run from cells and deficate (SPACE) to kill", width/2 - 200, 195);
     
-    textSize(40);
-    if(mouseX > width/2 - 47.5 && mouseX < width/2 + 47.5 && mouseY < height/2 + 10 && mouseY > height/2 - 50) {
-      fill(255, 0, 0);
+    if(credits || rules) {
+      textSize(30);
+      fill(255);
+      if(credits) {
+        text("Developer: Virinch Pandari", width/2 - 185, height/2 - 30);
+        text("Player Asset: PNGRepo.com | Bacteria Icon", width/2 - 275, height/2 + 30);
+        text("Food Asset: FavePNG.com | Shinne45", width/2 - 250, height/2 + 100);
+      } else {
+        text("\n You are playing as a bacteria. \n Avoid the viruses and eat red \n blood cells to gain mass. Deficate \n (SPACE) to kill the viruses but be \n careful not to lose too much mass!", width/2 - 230, height/2 - 100);
+      }
+      
+      textSize(40);
+      if(mouseX > width/2 - 45 && mouseX < width/2 + 45 && mouseY < height/2 + 200 && mouseY > height/2 + 140) {
+        fill(255, 0, 0);
+      }
+      text("Back", width/2 - 45, height/2 + 175);
     }
-    text("Start", width/2 - 47.5, height/2 - 15);
-    fill(255);
-    if(mouseX > width/2 - 67.5 && mouseX < width/2 + 67.5 && mouseY < height/2 + 105 && mouseY > height/2 + 45) {
-      fill(255, 0, 0);
+    else {
+      textSize(40);
+      if(mouseX > width/2 - 47.5 && mouseX < width/2 + 47.5 && mouseY < height/2 + 10 && mouseY > height/2 - 50) {
+        fill(255, 0, 0);
+      }
+      text("Start", width/2 - 47.5, height/2 - 15);
+      fill(255);
+      if(mouseX > width/2 - 67.5 && mouseX < width/2 + 67.5 && mouseY < height/2 + 105 && mouseY > height/2 + 45) {
+        fill(255, 0, 0);
+      }
+      text("Credits", width/2 - 67.5, height/2 + 80);
+      fill(255);
+      if(mouseX > width/2 - 52.5 && mouseX < width/2 + 52.5 && mouseY < height/2 + 200 && mouseY > height/2 + 140) {
+        fill(255, 0, 0);
+      }
+      text("Rules", width/2 - 52.5, height/2 + 175);
     }
-    text("Credits", width/2 - 67.5, height/2 + 80);
-    fill(255);
-    if(mouseX > width/2 - 52.5 && mouseX < width/2 + 52.5 && mouseY < height/2 + 200 && mouseY > height/2 + 140) {
-      fill(255, 0, 0);
-    }
-    text("Rules", width/2 - 52.5, height/2 + 175);
   }
 }
 
@@ -190,6 +209,13 @@ void mousePressed() {
   } else if(mouseX > width/2 - 47.5 && mouseX < width/2 + 47.5 && mouseY < height/2 + 10 && mouseY > height/2 - 50) {
     setup();
     playing = true;
+  } else if(mouseX > width/2 - 67.5 && mouseX < width/2 + 67.5 && mouseY < height/2 + 105 && mouseY > height/2 + 45) {
+    credits = true;
+  } else if((credits || rules) && mouseX > width/2 - 45 && mouseX < width/2 + 45 && mouseY < height/2 + 200 && mouseY > height/2 + 140) {
+    credits = false;
+    rules = false;
+  } else if(mouseX > width/2 - 52.5 && mouseX < width/2 + 52.5 && mouseY < height/2 + 200 && mouseY > height/2 + 140) {
+    rules = true;
   }
 }
 
