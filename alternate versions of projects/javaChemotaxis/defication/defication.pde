@@ -1,13 +1,13 @@
 PImage background, player, bully, food;
 Player bob;
-ArrayList<Bully> bullies = new ArrayList<Bully>();
-ArrayList<Feces> poopy = new ArrayList<Feces>();
-ArrayList<Food> foods = new ArrayList<Food>();
+ArrayList<Bully> bullies;
+ArrayList<Feces> poopy;
+ArrayList<Food> foods;
 int mass;
 int gTotal, gSaved;
 int bTotal, bSaved;
 int sped;
-boolean alive;
+boolean alive, playing = false;
 
 void setup() {
   size(1000, 600);
@@ -26,25 +26,40 @@ void setup() {
   bob = new Player(width/2, height/2);
   
   bully = loadImage("enemy.png");
-  for(int i = 0; i < 1; i++) {
-    bullies.add(new Bully(random(-width, 0), random(-height, 0), .008 + (.008 * sped)));
-    sped++;
+  bullies = new ArrayList<Bully>();
+  int randomW = (int)random(2);
+  int randomH = (int)random(2);
+  if(randomW == 0) {
+    if(randomH == 0)
+      bullies.add(new Bully(random(-width, 0), random(-height, 0), .008 + (.003 * sped)));
+    else
+      bullies.add(new Bully(random(-width, 0), random(height, 2 * height), .008 + (.003 * sped)));
+  } else {
+    if(randomH == 0)
+      bullies.add(new Bully(random(width, 2 * width), random(-height, 0), .008 + (.003 * sped)));
+    else
+      bullies.add(new Bully(random(-width, 2 * width), random(height, 2 * height), .008 + (.003 * sped)));
   }
+  sped++;
   
   food = loadImage("food.png");
+  foods = new ArrayList<Food>();
   for(int i = 0; i < 5; i++) {
     foods.add(new Food(random(width), random(height)));
   }
+  
+  poopy = new ArrayList<Feces>();
 }
 
 void draw() {
   background(background);
+  noStroke();
   
   if(mass <= 0) {
     alive = false;
   }
   
-  if(alive) {
+  if(alive && playing) {
     for(Feces turd : poopy) {
       turd.show();
     }
@@ -65,7 +80,7 @@ void draw() {
       if(((foods.get(i).x + 5) - (bob.x + (mass + 10)) <= 0) && ((bob.x - (mass + 10) - (foods.get(i).x + 35)) <= 0) && ((bob.y - (mass + 10) - (foods.get(i).y + 40)) <= 0) && ((foods.get(i).y) - (bob.y + (mass + 10)) <= 0)) {
         foods.remove(i);
         i--;
-        mass += 2;
+        mass += 1;
       }
     }
     
@@ -77,7 +92,19 @@ void draw() {
     } else {
       bSaved += bTotal;
       bTotal = 0;
-      bullies.add(new Bully(random(-width, 0), random(-height, 0), .008 + (.003 * sped)));
+      int randomW = (int)random(2);
+      int randomH = (int)random(2);
+      if(randomW == 0) {
+        if(randomH == 0)
+          bullies.add(new Bully(random(-width, 0), random(-height, 0), .008 + (.003 * sped)));
+        else
+          bullies.add(new Bully(random(-width, 0), random(height, 2 * height), .008 + (.003 * sped)));
+      } else {
+        if(randomH == 0)
+          bullies.add(new Bully(random(width, 2 * width), random(-height, 0), .008 + (.003 * sped)));
+        else
+          bullies.add(new Bully(random(-width, 2 * width), random(height, 2 * height), .008 + (.003 * sped)));
+      }
       sped++;
     }
     
@@ -112,16 +139,65 @@ void draw() {
       textSize(50);
       text("Mass: " + mass, width/2 - 100, height/2 - 10);
     }
-  } else {
-    fill(255, 220, 66);
+  } else if(playing){
+    fill(255);
     textSize(60);
-    text("YOU DEAD", width/2 - 160, height/2 - 15);
+    text("YOU DIED", width/2 - 145, 150);
+    textSize(30);
+    text("Final Mass: " + mass, width/2 - 105, 205);
+    
+    textSize(40);
+    if(mouseX > width/2 - 102.5 && mouseX < width/2 + 102.5 && mouseY < height/2 + 30 && mouseY > height/2 - 25) {
+      fill(255, 0, 0);
+    }
+    text("Play Again", width/2 - 102.5, height/2 + 10);
+    fill(255);
+    if(mouseX > width/2 - 57.5 && mouseX < width/2 + 57.5 && mouseY < height/2 + 130 && mouseY > height/2 + 75) {
+      fill(255, 0, 0);
+    }
+    text("Menu", width/2 - 57.5, height/2 + 110);
+  } else {
+    fill(205, 133 ,63);
+    textSize(65);
+    text("DEFICATION", width/2 - 190, 145);
+    textSize(20);
+    fill(255);
+    text("Run from cells and deficate (SPACE) to kill", width/2 - 200, 195);
+    
+    textSize(40);
+    if(mouseX > width/2 - 47.5 && mouseX < width/2 + 47.5 && mouseY < height/2 + 10 && mouseY > height/2 - 50) {
+      fill(255, 0, 0);
+    }
+    text("Start", width/2 - 47.5, height/2 - 15);
+    fill(255);
+    if(mouseX > width/2 - 67.5 && mouseX < width/2 + 67.5 && mouseY < height/2 + 105 && mouseY > height/2 + 45) {
+      fill(255, 0, 0);
+    }
+    text("Credits", width/2 - 67.5, height/2 + 80);
+    fill(255);
+    if(mouseX > width/2 - 52.5 && mouseX < width/2 + 52.5 && mouseY < height/2 + 200 && mouseY > height/2 + 140) {
+      fill(255, 0, 0);
+    }
+    text("Rules", width/2 - 52.5, height/2 + 175);
+  }
+}
+
+void mousePressed() {
+  if(playing && !alive && mouseX > width/2 - 102.5 && mouseX < width/2 + 102.5 && mouseY < height/2 + 30 && mouseY > height/2 - 25) {
+    setup();
+  } else if(playing && !alive && mouseX > width/2 - 57.5 && mouseX < width/2 + 57.5 && mouseY < height/2 + 130 && mouseY > height/2 + 75) {
+    playing = false;
+  } else if(mouseX > width/2 - 47.5 && mouseX < width/2 + 47.5 && mouseY < height/2 + 10 && mouseY > height/2 - 50) {
+    setup();
+    playing = true;
   }
 }
 
 void keyPressed() {
-  poopy.add(new Feces(bob.x, bob.y));
-  mass--;
+  if(alive) {
+    poopy.add(new Feces(bob.x, bob.y));
+    mass--;
+  }
 }
 
 class Player {
@@ -181,7 +257,6 @@ class Feces {
   }
   
   void show() {
-    noStroke();
     fill(210, 105, 30);
     ellipse(x, y, 20, 20);
   }
