@@ -271,15 +271,10 @@ class Bully {
 
 class Feces {
   float x, y;
-  int total, saved, totalSaved;
   
   Feces(float x, float y) {
     this.x = x;
     this.y = y;
-    
-    total = 0;
-    saved = 0;
-    totalSaved = millis();
   }
   
   void show() {
