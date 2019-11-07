@@ -218,7 +218,7 @@ void mousePressed() {
   } else if(mouseX > width/2 - 47.5 && mouseX < width/2 + 47.5 && mouseY < height/2 + 10 && mouseY > height/2 - 50) {
     setup();
     playing = true;
-  } else if(mouseX > width/2 - 67.5 && mouseX < width/2 + 67.5 && mouseY < height/2 + 105 && mouseY > height/2 + 45) {
+  } else if(!rules && mouseX > width/2 - 67.5 && mouseX < width/2 + 67.5 && mouseY < height/2 + 105 && mouseY > height/2 + 45) {
     credits = true;
   } else if((credits || rules) && mouseX > width/2 - 45 && mouseX < width/2 + 45 && mouseY < height/2 + 200 && mouseY > height/2 + 140) {
     credits = false;
