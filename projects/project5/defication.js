@@ -1,6 +1,6 @@
 var wallpaper, player, bully, food;
 var bob;
-var bullies = [], poopy = [], foods = [];
+var bullies, poopy, foods;
 var mass;
 var gTotal, gSaved;
 var bTotal, bSaved;
@@ -26,6 +26,10 @@ function setup() {
   gSaved = 0;
   bTotal = 0;
   bSaved = 0;
+
+  bullies = [];
+  poopy = [];
+  foods = [];
   
   bob = new Player(width/2, height/2);
   
@@ -80,6 +84,15 @@ function draw() {
         foods.splice(i, 1);
         i--;
         mass += 1;
+      }
+    }
+
+    for(var i = 0; i < poopy.length; i++) {
+      if(poopy[i].total < 3000) {
+        poopy[i].total = millis() - poopy[i].totalSaved;
+      } else {
+        poopy.splice(i, 1);
+        i--;
       }
     }
     
@@ -151,10 +164,10 @@ function draw() {
     }
     text("Play Again", width/2 - 102.5, height/2 + 10);
     fill(255);
-    if(mouseX > width/2 - 57.5 && mouseX < width/2 + 57.5 && mouseY < height/2 + 130 && mouseY > height/2 + 75) {
+    if(mouseX > width/2 - 62.5 && mouseX < width/2 + 62.5 && mouseY < height/2 + 130 && mouseY > height/2 + 75) {
       fill(255, 0, 0);
     }
-    text("Menu", width/2 - 57.5, height/2 + 110);
+    text("Menu", width/2 - 62.5, height/2 + 110);
   } else {
     fill(205, 133 ,63);
     textSize(65);
@@ -163,7 +176,7 @@ function draw() {
     textSize(20);
     textFont(font);
     fill(255);
-    text("Run from cells and deficate (SPACE) to kill", width/2 - 200, 195);
+    text("Run from cells and deficate (SPACE) to kill", width/2 - 190, 195);
     
     if(credits || rules) {
       textSize(30);
@@ -173,7 +186,7 @@ function draw() {
         text("Player Asset: PNGRepo.com | Bacteria Icon", width/2 - 275, height/2 + 30);
         text("Food Asset: FavePNG.com | Shinne45", width/2 - 250, height/2 + 100);
       } else {
-        text("\n You are playing as a bacteria. \n Avoid the viruses and eat red \n blood cells to gain mass. Deficate \n (SPACE) to kill the viruses but be \n careful not to lose too much mass!", width/2 - 230, height/2 - 100);
+        text("\n You are playing as a bacteria. \n Avoid the viruses and eat red \n blood cells to gain mass. Deficate \n (SPACE) to kill the viruses but be \n careful not to lose too much mass!", width/2 - 215, height/2 - 80);
       }
       
       textSize(40);
@@ -205,12 +218,13 @@ function draw() {
 function mousePressed() {
   if(playing && !alive && mouseX > width/2 - 102.5 && mouseX < width/2 + 102.5 && mouseY < height/2 + 30 && mouseY > height/2 - 25) {
     setup();
-  } else if(playing && !alive && mouseX > width/2 - 57.5 && mouseX < width/2 + 57.5 && mouseY < height/2 + 130 && mouseY > height/2 + 75) {
+    alive = true;
+  } else if(playing && !alive && mouseX > width/2 - 62.5 && mouseX < width/2 + 62.5 && mouseY < height/2 + 130 && mouseY > height/2 + 75) {
     playing = false;
   } else if(mouseX > width/2 - 47.5 && mouseX < width/2 + 47.5 && mouseY < height/2 + 10 && mouseY > height/2 - 50) {
     setup();
     playing = true;
-  } else if(mouseX > width/2 - 67.5 && mouseX < width/2 + 67.5 && mouseY < height/2 + 105 && mouseY > height/2 + 45) {
+  } else if(!rules && mouseX > width/2 - 67.5 && mouseX < width/2 + 67.5 && mouseY < height/2 + 105 && mouseY > height/2 + 45) {
     credits = true;
   } else if((credits || rules) && mouseX > width/2 - 45 && mouseX < width/2 + 45 && mouseY < height/2 + 200 && mouseY > height/2 + 140) {
     credits = false;
@@ -228,7 +242,7 @@ function keyPressed() {
 }
 
 class Player {
-  Player(x, y) {
+  constructor(x, y) {
     this.x = x;
     this.y = y;
     this.ease = 0.2;
@@ -248,7 +262,7 @@ class Player {
 }
 
 class Bully {
-  Bully(x, y, speed) {
+  constructor(x, y, speed) {
     this.x = x;
     this.y = y;
     this.ease =  speed;
@@ -268,9 +282,12 @@ class Bully {
 }
 
 class Feces {
-  Feces(x, y) {
+  constructor(x, y) {
     this.x = x;
     this.y = y;
+
+    this.total = 0;
+    this.totalSaved = millis();
   }
   
   show() {
@@ -280,7 +297,7 @@ class Feces {
 }
 
 class Food {
-  Food(x, y) {
+  constructor(x, y) {
     this.x = x;
     this.y = y;
   }
