@@ -1,4 +1,4 @@
-PImage background, player, bully, food;
+PImage wallpaper, player, bully, food;
 Player bob;
 ArrayList<Bully> bullies;
 ArrayList<Feces> poopy;
@@ -20,7 +20,7 @@ void setup() {
   bTotal = 0;
   bSaved = 0;
   
-  background = loadImage("background.jpg");
+  wallpaper = loadImage("background.jpg");
   
   player = loadImage("player.png");
   bob = new Player(width/2, height/2);
@@ -52,7 +52,7 @@ void setup() {
 }
 
 void draw() {
-  background(background);
+  image(wallpaper, 0, 0);
   noStroke();
   
   if(mass <= 0) {
@@ -81,6 +81,15 @@ void draw() {
         foods.remove(i);
         i--;
         mass += 1;
+      }
+    }
+
+    for(int i = 0; i < poopy.size(); i++) {
+      if(poopy.get(i).total < 3000) {
+        poopy.get(i).total = millis() - poopy.get(i).totalSaved;
+      } else {
+        poopy.remove(i);
+        i--;
       }
     }
     
@@ -162,7 +171,7 @@ void draw() {
     text("DEFICATION", width/2 - 190, 145);
     textSize(20);
     fill(255);
-    text("Run from cells and deficate (SPACE) to kill", width/2 - 200, 195);
+    text("Run from cells and deficate (SPACE) to kill", width/2 - 185, 195);
     
     if(credits || rules) {
       textSize(30);
@@ -172,7 +181,7 @@ void draw() {
         text("Player Asset: PNGRepo.com | Bacteria Icon", width/2 - 275, height/2 + 30);
         text("Food Asset: FavePNG.com | Shinne45", width/2 - 250, height/2 + 100);
       } else {
-        text("\n You are playing as a bacteria. \n Avoid the viruses and eat red \n blood cells to gain mass. Deficate \n (SPACE) to kill the viruses but be \n careful not to lose too much mass!", width/2 - 230, height/2 - 100);
+        text("\n You are playing as a bacteria. \n Avoid the viruses and eat red \n blood cells to gain mass. Deficate \n (SPACE) to kill the viruses but be \n careful not to lose too much mass!", width/2 - 215, height/2 - 80);
       }
       
       textSize(40);
@@ -271,10 +280,14 @@ class Bully {
 
 class Feces {
   float x, y;
+  int total, totalSaved;
   
   Feces(float x, float y) {
     this.x = x;
     this.y = y;
+
+    total = 0;
+    totalSaved = millis();
   }
   
   void show() {
