@@ -18,7 +18,7 @@ function preload() {
 
 function setup() {
   createCanvas(1000, 600);
-  background(139, 69, 19);
+  background(0);
   alive = true;
   mass = 10;
   sped = 0;
