@@ -2,6 +2,7 @@ var wallpaper, player, bully, food;
 var bob;
 var bullies, poopy, foods;
 var mass, score;
+var lastgame;
 var gTotal, gSaved;
 var bTotal, bSaved;
 var sped;
@@ -26,6 +27,7 @@ function setup() {
   gSaved = 0;
   bTotal = 0;
   bSaved = 0;
+  lastgame = millis();
 
   bullies = [];
   poopy = [];
@@ -63,7 +65,7 @@ function draw() {
   }
   
   if(alive && playing) {
-    score = parseInt(millis()/1000);
+    score = parseInt(millis()/1000 - lastgame/1000);
 
     for(var turd of poopy) {
       turd.show();
