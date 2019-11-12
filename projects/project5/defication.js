@@ -143,97 +143,98 @@ function draw() {
       }
     }
     
-    if(mass >= 5) {
-      fill(255);
-      textSize(32);
+    fill(255);
+    textSize(32);
+    text("Score: " + score, width-150, 30);
+
+    if(mass > 5) {
       text("Mass: " + mass, 10, 30);
     }
     else {
       fill(255, 220, 66);
       textSize(50);
-      text("Mass: " + mass, width/2 - 100, height/2 - 10);
+      text("Mass: " + mass, width/2 - 70, height/2 - 10);
     }
-    text("Score: " + score, width-150, 30);
 
   } else if(playing){
     fill(255);
     textSize(60);
-    text("YOU DIED", width/2 - 145, 150);
+    text("YOU DIED", width/2 - 125, 150);
     textSize(30);
-    text("Final Score: " + score, width/2 - 105, 205);
+    text("Final Score: " + score, width/2 - 85, 205);
     
     textSize(40);
-    if(mouseX > width/2 - 102.5 && mouseX < width/2 + 102.5 && mouseY < height/2 + 30 && mouseY > height/2 - 25) {
+    if(mouseX > width/2 - 82.5 && mouseX < width/2 + 122.5 && mouseY < height/2 + 30 && mouseY > height/2 - 25) {
       fill(255, 0, 0);
     }
-    text("Play Again", width/2 - 102.5, height/2 + 10);
+    text("Play Again", width/2 - 82.5, height/2 + 10);
     fill(255);
-    if(mouseX > width/2 - 62.5 && mouseX < width/2 + 62.5 && mouseY < height/2 + 130 && mouseY > height/2 + 75) {
+    if(mouseX > width/2 - 42.5 && mouseX < width/2 + 82.5 && mouseY < height/2 + 130 && mouseY > height/2 + 75) {
       fill(255, 0, 0);
     }
-    text("Menu", width/2 - 62.5, height/2 + 110);
+    text("Menu", width/2 - 42.5, height/2 + 110);
   } else {
     fill(205, 133 ,63);
     textSize(65);
     textFont(heading);
-    text("DEFICATION", width/2 - 190, 145);
+    text("DEFICATION", width/2 - 170, 145);
     textSize(20);
     textFont(font);
     fill(255);
-    text("Run from cells and deficate (SPACE) to kill", width/2 - 190, 195);
+    text("Run from cells and deficate (SPACE) to kill", width/2 - 170, 195);
     
     if(credits || rules) {
       textSize(30);
       fill(255);
       if(credits) {
-        text("Developer: Virinch Pandari", width/2 - 185, height/2 - 30);
-        text("Player Asset: PNGRepo.com | Bacteria Icon", width/2 - 275, height/2 + 30);
-        text("Food Asset: FavePNG.com | Shinne45", width/2 - 250, height/2 + 100);
+        text("Developer: Virinch Pandari", width/2 - 165, height/2 - 30);
+        text("Player Asset: PNGRepo.com | Bacteria Icon", width/2 - 255, height/2 + 30);
+        text("Food Asset: FavePNG.com | Shinne45", width/2 - 230, height/2 + 100);
       } else {
-        text("\n You are playing as a bacteria. \n Avoid the viruses and eat red \n blood cells to gain mass. Deficate \n (SPACE) to kill the viruses but be \n careful not to lose too much mass!", width/2 - 215, height/2 - 80);
+        text("\n You are playing as a bacteria. \n Avoid the viruses and eat red \n blood cells to gain mass. Deficate \n (SPACE) to kill the viruses but be \n careful not to lose too much mass!", width/2 - 195, height/2 - 80);
       }
       
       textSize(40);
-      if(mouseX > width/2 - 45 && mouseX < width/2 + 45 && mouseY < height/2 + 200 && mouseY > height/2 + 140) {
+      if(mouseX > width/2 - 25 && mouseX < width/2 + 65 && mouseY < height/2 + 200 && mouseY > height/2 + 140) {
         fill(255, 0, 0);
       }
-      text("Back", width/2 - 45, height/2 + 175);
+      text("Back", width/2 - 25, height/2 + 175);
     }
     else {
       textSize(40);
-      if(mouseX > width/2 - 47.5 && mouseX < width/2 + 47.5 && mouseY < height/2 + 10 && mouseY > height/2 - 50) {
+      if(mouseX > width/2 - 27.5 && mouseX < width/2 + 67.5 && mouseY < height/2 + 10 && mouseY > height/2 - 50) {
         fill(255, 0, 0);
       }
-      text("Start", width/2 - 47.5, height/2 - 15);
+      text("Start", width/2 - 27.5, height/2 - 15);
       fill(255);
-      if(mouseX > width/2 - 67.5 && mouseX < width/2 + 67.5 && mouseY < height/2 + 105 && mouseY > height/2 + 45) {
+      if(mouseX > width/2 - 47.5 && mouseX < width/2 + 87.5 && mouseY < height/2 + 105 && mouseY > height/2 + 45) {
         fill(255, 0, 0);
       }
-      text("Credits", width/2 - 67.5, height/2 + 80);
+      text("Credits", width/2 - 47.5, height/2 + 80);
       fill(255);
-      if(mouseX > width/2 - 52.5 && mouseX < width/2 + 52.5 && mouseY < height/2 + 200 && mouseY > height/2 + 140) {
+      if(mouseX > width/2 - 32.5 && mouseX < width/2 + 72.5 && mouseY < height/2 + 200 && mouseY > height/2 + 140) {
         fill(255, 0, 0);
       }
-      text("Rules", width/2 - 52.5, height/2 + 175);
+      text("Rules", width/2 - 32.5, height/2 + 175);
     }
   }
 }
 
 function mousePressed() {
-  if(playing && !alive && mouseX > width/2 - 102.5 && mouseX < width/2 + 102.5 && mouseY < height/2 + 30 && mouseY > height/2 - 25) {
+  if(playing && !alive && mouseX > width/2 - 82.5 && mouseX < width/2 + 122.5 && mouseY < height/2 + 30 && mouseY > height/2 - 25) {
     setup();
     alive = true;
-  } else if(playing && !alive && mouseX > width/2 - 62.5 && mouseX < width/2 + 62.5 && mouseY < height/2 + 130 && mouseY > height/2 + 75) {
+  } else if(playing && !alive && mouseX > width/2 - 42.5 && mouseX < width/2 + 82.5 && mouseY < height/2 + 130 && mouseY > height/2 + 75) {
     playing = false;
-  } else if(mouseX > width/2 - 47.5 && mouseX < width/2 + 47.5 && mouseY < height/2 + 10 && mouseY > height/2 - 50) {
+  } else if(mouseX > width/2 - 27.5 && mouseX < width/2 + 67.5 && mouseY < height/2 + 10 && mouseY > height/2 - 50) {
     setup();
     playing = true;
-  } else if(!rules && mouseX > width/2 - 67.5 && mouseX < width/2 + 67.5 && mouseY < height/2 + 105 && mouseY > height/2 + 45) {
+  } else if(!rules && mouseX > width/2 - 47.5 && mouseX < width/2 + 87.5 && mouseY < height/2 + 105 && mouseY > height/2 + 45) {
     credits = true;
-  } else if((credits || rules) && mouseX > width/2 - 45 && mouseX < width/2 + 45 && mouseY < height/2 + 200 && mouseY > height/2 + 140) {
+  } else if((credits || rules) && mouseX > width/2 - 25 && mouseX < width/2 + 65 && mouseY < height/2 + 200 && mouseY > height/2 + 140) {
     credits = false;
     rules = false;
-  } else if(mouseX > width/2 - 52.5 && mouseX < width/2 + 52.5 && mouseY < height/2 + 200 && mouseY > height/2 + 140) {
+  } else if(mouseX > width/2 - 32.5 && mouseX < width/2 + 72.5 && mouseY < height/2 + 200 && mouseY > height/2 + 140) {
     rules = true;
   }
 }
