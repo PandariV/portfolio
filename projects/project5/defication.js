@@ -1,7 +1,7 @@
 var wallpaper, player, bully, food;
 var bob;
 var bullies, poopy, foods;
-var mass;
+var mass, score;
 var gTotal, gSaved;
 var bTotal, bSaved;
 var sped;
@@ -63,6 +63,8 @@ function draw() {
   }
   
   if(alive && playing) {
+    score = parseInt(millis()/1000);
+
     for(var turd of poopy) {
       turd.show();
     }
@@ -151,12 +153,14 @@ function draw() {
       textSize(50);
       text("Mass: " + mass, width/2 - 100, height/2 - 10);
     }
+    text("Score: " + score, width-150, 30);
+
   } else if(playing){
     fill(255);
     textSize(60);
     text("YOU DIED", width/2 - 145, 150);
     textSize(30);
-    text("Final Mass: " + mass, width/2 - 105, 205);
+    text("Final Score: " + score, width/2 - 105, 205);
     
     textSize(40);
     if(mouseX > width/2 - 102.5 && mouseX < width/2 + 102.5 && mouseY < height/2 + 30 && mouseY > height/2 - 25) {
