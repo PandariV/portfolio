@@ -1,10 +1,13 @@
 float rotX = 0, rotY = 0;
-boolean toggle = true;;
+boolean toggle = true;
+PFont font;
 Planets[] planets = new Planets[8];
 
 void setup() {
   fullScreen(P3D);
   background(0);
+  
+  font = createFont("Roboto", 20);
   
   planets[0] = new Mercury(.05);
   planets[1] = new Venus(.045);
@@ -22,6 +25,7 @@ void draw() {
   lights();
   smooth();
   noStroke();
+  textFont(font);
   
   rotateX(rotX);
   rotateY(rotY);
@@ -50,8 +54,7 @@ void keyPressed() {
 void text(float x, float y, float z, float radius, String text) {
   if(toggle) {
     fill(255);
-    textSize(20);
-    text(text, x - text.length() * 5, y - radius - 20, z);
+    text(text, x - text.length() * 5.5, y - radius - 20, z);
   }
 }
 
