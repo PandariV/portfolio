@@ -1,5 +1,11 @@
 var rotX = 0, rotY = 0;
+var toggle = true;
+var font;
 planets = [];
+
+function preload() {
+  font = loadFont("font.ttf");
+}
 
 function setup() {
   createCanvas(1000, 600, WEBGL);
@@ -19,12 +25,14 @@ function draw() {
   lights();
   smooth();
   noStroke();
+  textFont(font);
   
   rotateX(rotX);
   rotateY(rotY);
   
   fill(255, 57, 18);
   sphere(100);
+  hud(0, 0, 0, 100, "Sun");
   
   for(var p of planets) {
     p.show();
@@ -35,6 +43,18 @@ function draw() {
 function mouseDragged(){
   rotY += (mouseX - pmouseX) * 0.01;
   rotX -= (mouseY - pmouseY) * 0.01;
+}
+
+function keyPressed() {
+  toggle = toggle ? false : true;
+}
+
+function hud(x, y, z, radius, words) {
+  if(toggle) {
+    fill(255);
+    textSize(20);
+    text(words, x - words.length * 5.5, y - radius - 20, z);
+  }
 }
 
 class Mercury {
@@ -48,6 +68,7 @@ class Mercury {
     fill(139, 125, 130);
     translate(this.x, 0, this.z);
     sphere(10);
+    hud(0, 0, 0, 10, "Mercury");
     translate(-this.x, 0, -this.z);
   }
   
@@ -69,6 +90,7 @@ class Venus {
     fill(252, 212, 64);
     translate(this.x, 0, this.z);
     sphere(15);
+    hud(0, 0, 0, 15, "Venus");
     translate(-this.x, 0, -this.z);
   }
   
@@ -90,6 +112,7 @@ class Earth {
     fill(39, 162, 214);
     translate(this.x, 0, this.z);
     sphere(15);
+    hud(0, 0, 0, 15, "Earth");
     translate(-this.x, 0, -this.z);
   }
   
@@ -111,6 +134,7 @@ class Mars {
     fill(188, 42, 58);
     translate(this.x, 0, this.z);
     sphere(12);
+    hud(0, 0, 0, 12, "Mars");
     translate(-this.x, 0, -this.z);
   }
   
@@ -132,6 +156,7 @@ class Jupiter {
     fill(255, 158, 54);
     translate(this.x, 0, this.z);
     sphere(25);
+    hud(0, 0, 0, 25, "Jupiter");
     translate(-this.x, 0, -this.z);
   }
   
@@ -153,6 +178,7 @@ class Saturn {
     fill(176, 129, 35);
     translate(this.x, 0, this.z);
     sphere(20);
+    hud(0, 0, 0, 20, "Saturn");
     translate(-this.x, 0, -this.z);
   }
   
@@ -174,6 +200,7 @@ class Uranus {
     fill(62, 228, 237);
     translate(this.x, 0, this.z);
     sphere(18);
+    hud(0, 0, 0, 18, "Uranus");
     translate(-this.x, 0, -this.z);
   }
   
@@ -195,6 +222,7 @@ class Neptune {
     fill(0, 110, 184);
     translate(this.x, 0, this.z);
     sphere(18);
+    hud(0, 0, 0, 18, "Neptune");
     translate(-this.x, 0, -this.z);
   }
   

@@ -1,8 +1,10 @@
 float rotX = 0, rotY = 0;
+boolean toggle = false;
 Planets[] planets = new Planets[8];
 
 void setup() {
   fullScreen(P3D);
+  background(0);
   
   planets[0] = new Mercury(.05);
   planets[1] = new Venus(.045);
@@ -26,6 +28,7 @@ void draw() {
   
   fill(255, 57, 18);
   sphere(100);
+  text(0, 0, 0, 100, "Sun");
   
   pointLight(255, 255, 255, 0, 0, 0);
   
@@ -38,6 +41,18 @@ void draw() {
 void mouseDragged(){
   rotY += (mouseX - pmouseX) * 0.01;
   rotX -= (mouseY - pmouseY) * 0.01;
+}
+
+void keyPressed() {
+  toggle = toggle ? false : true;
+}
+
+void text(float x, float y, float z, float radius, String text) {
+  if(toggle) {
+    fill(255);
+    textSize(20);
+    text(text, x - text.length() * 5, y - radius - 20, z);
+  }
 }
 
 interface Planets {
@@ -58,6 +73,7 @@ class Mercury implements Planets {
     fill(139, 125, 130);
     translate(x, 0, z);
     sphere(10);
+    text(0, 0, 0, 10, "Mercury");
     translate(-x, 0, -z);
   }
   
@@ -81,6 +97,7 @@ class Venus implements Planets {
     fill(252, 212, 64);
     translate(x, 0, z);
     sphere(15);
+    text(0, 0, 0, 15, "Venus");
     translate(-x, 0, -z);
   }
   
@@ -104,6 +121,7 @@ class Earth implements Planets {
     fill(39, 162, 214);
     translate(x, 0, z);
     sphere(15);
+    text(0, 0, 0, 15, "Earth");
     translate(-x, 0, -z);
   }
   
@@ -127,6 +145,7 @@ class Mars implements Planets {
     fill(188, 42, 58);
     translate(x, 0, z);
     sphere(12);
+    text(0, 0, 0, 12, "Mars");
     translate(-x, 0, -z);
   }
   
@@ -150,6 +169,7 @@ class Jupiter implements Planets {
     fill(255, 158, 54);
     translate(x, 0, z);
     sphere(25);
+    text(0, 0, 0, 25, "Jupiter");
     translate(-x, 0, -z);
   }
   
@@ -173,6 +193,7 @@ class Saturn implements Planets {
     fill(176, 129, 35);
     translate(x, 0, z);
     sphere(20);
+    text(0, 0, 0, 20, "Saturn");
     translate(-x, 0, -z);
   }
   
@@ -196,6 +217,7 @@ class Uranus implements Planets {
     fill(62, 228, 237);
     translate(x, 0, z);
     sphere(18);
+    text(0, 0, 0, 18, "Uranus");
     translate(-x, 0, -z);
   }
   
@@ -219,6 +241,7 @@ class Neptune implements Planets {
     fill(0, 110, 184);
     translate(x, 0, z);
     sphere(18);
+    text(0, 0, 0, 18, "Neptune");
     translate(-x, 0, -z);
   }
   
