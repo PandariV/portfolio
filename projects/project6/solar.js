@@ -26,8 +26,6 @@ function draw() {
   fill(255, 57, 18);
   sphere(100);
   
-  pointLight(255, 255, 255, 0, 0, 0);
-  
   for(var p of planets) {
     p.show();
     p.update();
