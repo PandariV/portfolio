@@ -1,5 +1,5 @@
 float rotX = 0, rotY = 0;
-boolean toggle = false;
+boolean toggle = true;;
 Planets[] planets = new Planets[8];
 
 void setup() {
