@@ -1,3 +1,4 @@
+float rotX = 0, rotY = 0;
 float r = 25;
 
 PVector center = new PVector(0, 0, 0);
@@ -15,7 +16,15 @@ void setup() {
 
 void draw() {
   background(0);
+  translate(width/2, height/2);
+  rotateX(rotX);
+  rotateY(rotY);
   cube.display();
+}
+
+void mouseDragged(){
+  rotY += (mouseX - pmouseX) * 0.01;
+  rotX -= (mouseY - pmouseY) * 0.01;
 }
 
 void keyPressed() {
