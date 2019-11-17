@@ -1,6 +1,8 @@
 float rotX = 0, rotY = 0;
 boolean toggle = true;
 Planets[] planets = new Planets[8];
+PImage[] textures = new PImage[9];
+PShape[] shapes = new PShape[9];
 
 void setup() {
   fullScreen(P3D);
@@ -14,6 +16,37 @@ void setup() {
   planets[5] = new Saturn(.025);
   planets[6] = new Uranus(.02);
   planets[7] = new Neptune(.015);
+  
+  textures[0] = loadImage("sun.jpg");
+  textures[1] = loadImage("mercury.jpg");
+  textures[2] = loadImage("venus.jpg");
+  textures[3] = loadImage("earth.jpg");
+  textures[4] = loadImage("mars.jpg");
+  textures[5] = loadImage("jupiter.jpg");
+  textures[6] = loadImage("saturn.jpg");
+  textures[7] = loadImage("uranus.jpg");
+  textures[8] = loadImage("neptune.jpg");
+  
+  noStroke();
+  noFill();
+  shapes[0] = createShape(SPHERE, 100);
+  shapes[0].setTexture(textures[0]);
+  shapes[1] = createShape(SPHERE, 10);
+  shapes[1].setTexture(textures[1]);
+  shapes[2] = createShape(SPHERE, 15);
+  shapes[2].setTexture(textures[2]);
+  shapes[3] = createShape(SPHERE, 15);
+  shapes[3].setTexture(textures[3]);
+  shapes[4] = createShape(SPHERE, 12);
+  shapes[4].setTexture(textures[4]);
+  shapes[5] = createShape(SPHERE, 25);
+  shapes[5].setTexture(textures[5]);
+  shapes[6] = createShape(SPHERE, 20);
+  shapes[6].setTexture(textures[6]);
+  shapes[7] = createShape(SPHERE, 18);
+  shapes[7].setTexture(textures[7]);
+  shapes[8] = createShape(SPHERE, 18);
+  shapes[8].setTexture(textures[8]);
 }
 
 void draw() {
@@ -26,8 +59,7 @@ void draw() {
   rotateX(rotX);
   rotateY(rotY);
   
-  fill(255, 57, 18);
-  sphere(100);
+  shape(shapes[0]);
   text(0, 0, 0, 100, "Sun");
   
   for(Planets p : planets) {
@@ -68,9 +100,8 @@ class Mercury implements Planets {
   }
   
   void show() {
-    fill(139, 125, 130);
     translate(x, 0, z);
-    sphere(10);
+    shape(shapes[1]);
     text(0, 0, 0, 10, "Mercury");
     translate(-x, 0, -z);
   }
@@ -92,9 +123,8 @@ class Venus implements Planets {
   }
   
   void show() {
-    fill(252, 212, 64);
     translate(x, 0, z);
-    sphere(15);
+    shape(shapes[2]);
     text(0, 0, 0, 15, "Venus");
     translate(-x, 0, -z);
   }
@@ -116,9 +146,8 @@ class Earth implements Planets {
   }
   
   void show() {
-    fill(39, 162, 214);
     translate(x, 0, z);
-    sphere(15);
+    shape(shapes[3]);
     text(0, 0, 0, 15, "Earth");
     translate(-x, 0, -z);
   }
@@ -140,9 +169,8 @@ class Mars implements Planets {
   }
   
   void show() {
-    fill(188, 42, 58);
     translate(x, 0, z);
-    sphere(12);
+    shape(shapes[4]);
     text(0, 0, 0, 12, "Mars");
     translate(-x, 0, -z);
   }
@@ -164,9 +192,8 @@ class Jupiter implements Planets {
   }
   
   void show() {
-    fill(255, 158, 54);
     translate(x, 0, z);
-    sphere(25);
+    shape(shapes[5]);
     text(0, 0, 0, 25, "Jupiter");
     translate(-x, 0, -z);
   }
@@ -188,9 +215,8 @@ class Saturn implements Planets {
   }
   
   void show() {
-    fill(176, 129, 35);
     translate(x, 0, z);
-    sphere(20);
+    shape(shapes[6]);
     text(0, 0, 0, 20, "Saturn");
     translate(-x, 0, -z);
   }
@@ -212,9 +238,8 @@ class Uranus implements Planets {
   }
   
   void show() {
-    fill(62, 228, 237);
     translate(x, 0, z);
-    sphere(18);
+    shape(shapes[7]);
     text(0, 0, 0, 18, "Uranus");
     translate(-x, 0, -z);
   }
@@ -236,9 +261,8 @@ class Neptune implements Planets {
   }
   
   void show() {
-    fill(0, 110, 184);
     translate(x, 0, z);
-    sphere(18);
+    shape(shapes[8]);
     text(0, 0, 0, 18, "Neptune");
     translate(-x, 0, -z);
   }

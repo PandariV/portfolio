@@ -2,9 +2,20 @@ var rotX = 0, rotY = 0;
 var toggle = true;
 var font;
 planets = [];
+textures = [];
 
 function preload() {
   font = loadFont("font.ttf");
+
+  textures.push(loadImage("sun.jpg"));
+  textures.push(loadImage("mercury.jpg"));
+  textures.push(loadImage("venus.jpg"));
+  textures.push(loadImage("earth.jpg"));
+  textures.push(loadImage("mars.jpg"));
+  textures.push(loadImage("jupiter.jpg"));
+  textures.push(loadImage("saturn.jpg"));
+  textures.push(loadImage("uranus.jpg"));
+  textures.push(loadImage("neptune.jpg"));
 }
 
 function setup() {
@@ -30,7 +41,7 @@ function draw() {
   rotateX(rotX);
   rotateY(rotY);
   
-  fill(255, 57, 18);
+  texture(textures[0]);
   sphere(100);
   hud(0, 0, 0, 100, "Sun");
   
@@ -65,8 +76,8 @@ class Mercury {
   }
   
   show() {
-    fill(139, 125, 130);
     translate(this.x, 0, this.z);
+    texture(textures[1]);
     sphere(10);
     hud(0, 0, 0, 10, "Mercury");
     translate(-this.x, 0, -this.z);
@@ -87,8 +98,8 @@ class Venus {
   }
   
   show() {
-    fill(252, 212, 64);
     translate(this.x, 0, this.z);
+    texture(textures[2]);
     sphere(15);
     hud(0, 0, 0, 15, "Venus");
     translate(-this.x, 0, -this.z);
@@ -109,8 +120,8 @@ class Earth {
   }
   
   show() {
-    fill(39, 162, 214);
     translate(this.x, 0, this.z);
+    texture(textures[3]);
     sphere(15);
     hud(0, 0, 0, 15, "Earth");
     translate(-this.x, 0, -this.z);
@@ -131,8 +142,8 @@ class Mars {
   }
   
   show() {
-    fill(188, 42, 58);
     translate(this.x, 0, this.z);
+    texture(textures[4]);
     sphere(12);
     hud(0, 0, 0, 12, "Mars");
     translate(-this.x, 0, -this.z);
@@ -153,8 +164,8 @@ class Jupiter {
   }
   
   show() {
-    fill(255, 158, 54);
     translate(this.x, 0, this.z);
+    texture(textures[5]);
     sphere(25);
     hud(0, 0, 0, 25, "Jupiter");
     translate(-this.x, 0, -this.z);
@@ -175,8 +186,8 @@ class Saturn {
   }
   
   show() {
-    fill(176, 129, 35);
     translate(this.x, 0, this.z);
+    texture(textures[6]);
     sphere(20);
     hud(0, 0, 0, 20, "Saturn");
     translate(-this.x, 0, -this.z);
@@ -197,8 +208,8 @@ class Uranus {
   }
   
   show() {
-    fill(62, 228, 237);
     translate(this.x, 0, this.z);
+    texture(textures[7]);
     sphere(18);
     hud(0, 0, 0, 18, "Uranus");
     translate(-this.x, 0, -this.z);
@@ -219,8 +230,8 @@ class Neptune {
   }
   
   show() {
-    fill(0, 110, 184);
     translate(this.x, 0, this.z);
+    texture(textures[8]);
     sphere(18);
     hud(0, 0, 0, 18, "Neptune");
     translate(-this.x, 0, -this.z);
