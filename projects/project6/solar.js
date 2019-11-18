@@ -40,6 +40,7 @@ function draw() {
   
   rotateX(rotX);
   rotateY(rotY);
+  rotateZ(-PI/50);
   
   texture(textures[0]);
   sphere(100);

@@ -58,6 +58,7 @@ void draw() {
   
   rotateX(rotX);
   rotateY(rotY);
+  rotateZ(-PI/50);
   
   shape(shapes[0]);
   text(0, 0, 0, 100, "Sun");
