@@ -81,8 +81,10 @@ void keyPressed() {
 void text(float x, float y, float z, float radius, String text) {
   if(toggle) {
     fill(255);
+    rotateY(-rotY);
     textSize(20);
     text(text, x - text.length() * 5.5, y - radius - 20, z);
+    rotateY(rotY);
   }
 }
 
