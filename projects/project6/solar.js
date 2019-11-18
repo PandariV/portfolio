@@ -64,8 +64,10 @@ function keyPressed() {
 function hud(x, y, z, radius, words) {
   if(toggle) {
     fill(255);
+    rotateY(-rotY);
     textSize(20);
     text(words, x - words.length * 5.5, y - radius - 20, z);
+    rotateY(rotY);
   }
 }
 
