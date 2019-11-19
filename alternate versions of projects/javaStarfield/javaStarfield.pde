@@ -3,9 +3,10 @@ boolean toggle = true;
 Planets[] planets = new Planets[8];
 PImage[] textures = new PImage[9];
 PShape[] shapes = new PShape[9];
+PImage background;
 
 void setup() {
-  fullScreen(P3D);
+  size(1000, 600, P3D);
   background(0);
   
   planets[0] = new Mercury(.05);
@@ -16,6 +17,8 @@ void setup() {
   planets[5] = new Saturn(.025);
   planets[6] = new Uranus(.02);
   planets[7] = new Neptune(.015);
+  
+  background = loadImage("stars.jpg");
   
   textures[0] = loadImage("sun.jpg");
   textures[1] = loadImage("mercury.jpg");
@@ -50,7 +53,7 @@ void setup() {
 }
 
 void draw() {
-  background(0);
+  background(background);
   translate(width/2, height/2);
   lights();
   smooth();
