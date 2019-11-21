@@ -19,7 +19,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(1000, 600, WEBGL);
+  createCanvas(windowWidth, windowHeight, WEBGL);
   
   planets.push(new Mercury(.05));
   planets.push(new Venus(.045));
