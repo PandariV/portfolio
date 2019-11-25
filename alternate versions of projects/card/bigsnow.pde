@@ -25,9 +25,10 @@ class Bigsnow implements Snow {
   }
   
   void show() {
+    push();
     fill(255);
     translate(x, y, z);
     sphere(size);
-    translate(-x, -y, -z);
+    pop();
   }
 }
