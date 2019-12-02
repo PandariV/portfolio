@@ -7,7 +7,7 @@ class Bigsnow implements Snow {
   }
   
   void update() {
-    if(x >= -300 && x <= 300)
+    if(x >= -(width/4) && x <= (width/4))
       x += xSpeed;
     y += ySpeed;
     if(y >= -size/2) {
@@ -16,9 +16,9 @@ class Bigsnow implements Snow {
   }
   
   void reset(){
-    x = random(-300, 300);
+    x = random(-(width/4), (width/4));
     y = random(-1000, -10);
-    z = random(-300, 300);
+    z = random(-(width/4), (width/4));
     xSpeed = random(-1, 1);
     ySpeed = random(2, 6);
     size = random(1, 5);

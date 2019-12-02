@@ -5,7 +5,8 @@ Tree tree2 = new Tree(-120, 0, -75);
 ArrayList<Snow> snowflakes = new ArrayList<Snow>();
 
 void setup() {
-  size(1000, 600, P3D);
+  //size(1000, 600, P3D);
+  fullScreen(P3D);
   background(0);
   
   for(int i = 0; i < 250; i++) {
@@ -26,7 +27,8 @@ void draw() {
   push();
   rotateX(PI/2);
   fill(240);
-  rect(-300, -300, 600, 600);
+  rect(-(width/4), -(width/4), width/2, width/2);
+  box(width/2, width/2, 4);
   pop();
   
   house.show();
