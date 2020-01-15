@@ -1,5 +1,5 @@
 fileContents = [];
-var rawText;
+var rawText = "7";
 tokens = [];
 cloud = [];
 var font;
@@ -7,10 +7,10 @@ var font;
 function preload() {
   font = loadFont("font.ttf");
   fileContents = loadStrings("text.txt");
-  rawText = join(fileContents, "\s");
-  console.log(rawText);
+  rawText = join(fileContents, " ");
   rawText = rawText.toLowerCase();
   tokens = rawText.split("[^\w]+");
+  tokens = fileContents;
 }
 
 function setup() {
@@ -26,7 +26,7 @@ function setup() {
 
 function draw() {
   background(0);
-  textFont(font);
+  textFont("Georgia");
   
   for(var w of cloud) {
     w.update();
@@ -45,7 +45,7 @@ function countVowels(s) {
 }
 
 function countSyllables(s) {
-  var syllables = s.length > 2 && s.substring(s.length-2) == e ? 1 : 0;
+  var syllables = s.length > 2 && s.substring(s.length-2) == "e" ? 1 : 0;
   var vowels = s.split("[aeiouyAEIOUY]+");
   var exceptions = s.split("[a-z][e][\\s]");
   return vowels.length - syllables + exceptions.length;
