@@ -6,7 +6,7 @@ ArrayList<Word> cloud = new ArrayList<Word>();
 PFont font;
 
 void setup() {
-  size(1000, 600);
+  size(screen.width,screen.height);
   background(0);
   font = createFont("Monospaced", 32);
   fileContents = loadStrings("speech.txt");
