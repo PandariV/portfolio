@@ -10,7 +10,7 @@ color[] colors = {#87000f, #0757bf, #ffffff, #30ff4b, #ffff11, #ff973d};
 Cube cube = new Cube();
 
 void setup() {
-  size(600, 600, P3D);
+  size(screen.width,screen.height, P3D);
   stroke(0);
 }
 

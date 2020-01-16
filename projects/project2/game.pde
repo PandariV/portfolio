@@ -2,7 +2,7 @@ ArrayList<Box> boxes;
 int scale = 25;
 
 void setup() {
-  size(601, 601);
+  size(screen.width,screen.height);
   
   boxes = new ArrayList<Box>();
   
