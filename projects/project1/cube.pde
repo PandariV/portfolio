@@ -22,7 +22,7 @@ void draw() {
   cube.display();
 }
 
-void mouseDragged(){
+void mouseDragged() {
   rotY += (mouseX - pmouseX) * 0.01;
   rotX -= (mouseY - pmouseY) * 0.01;
 }
